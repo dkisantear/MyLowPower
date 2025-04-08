@@ -5,7 +5,7 @@
 
 class MyLowPower {
 public:
-  void sleepNow();  // Enter power-down mode
+  void sleepNow();  // Enters deep sleep mode
 };
 
 #endif
