@@ -5,6 +5,13 @@
 #include <avr/sleep.h>
 #include <avr/power.h>
 
+// === Add these macros so they exist ===
+#define ADC_OFF true
+#define ADC_ON false
+
+#define BOD_OFF true
+#define BOD_ON false
+
 enum SleepPeriod {
   SLEEP_250MS,
   SLEEP_500MS,
