@@ -1,11 +1,24 @@
-#ifndef MYLOWPOWER_H
-#define MYLOWPOWER_H
+#ifndef MY_LOW_POWER_H
+#define MY_LOW_POWER_H
 
 #include <Arduino.h>
+#include <avr/sleep.h>
+#include <avr/power.h>
 
-class MyLowPower {
-public:
-  void sleepNow();  // Enters deep sleep mode
+enum SleepPeriod {
+  SLEEP_250MS,
+  SLEEP_500MS,
+  SLEEP_1S
 };
+
+class MyLowPowerClass {
+public:
+  void powerDown(SleepPeriod period, bool adcOff, bool bodOff);
+
+private:
+  unsigned long getSleepDuration(SleepPeriod period);
+};
+
+extern MyLowPowerClass MyLowPower;
 
 #endif
