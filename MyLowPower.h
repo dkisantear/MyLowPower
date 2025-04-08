@@ -1,31 +1,11 @@
-#ifndef MY_LOW_POWER_H
-#define MY_LOW_POWER_H
-
+// MyLowPower.h
+#ifndef MYLOWPOWER_H
+#define MYLOWPOWER_H
 #include <Arduino.h>
-#include <avr/sleep.h>
-#include <avr/power.h>
-
-// === Add these macros so they exist ===
-#define ADC_OFF true
-#define ADC_ON false
-
-#define BOD_OFF true
-#define BOD_ON false
-
-enum SleepPeriod {
-  SLEEP_250MS,
-  SLEEP_500MS,
-  SLEEP_1S
-};
-
-class MyLowPowerClass {
-public:
-  void powerDown(SleepPeriod period, bool adcOff, bool bodOff);
-
-private:
-  unsigned long getSleepDuration(SleepPeriod period);
-};
-
-extern MyLowPowerClass MyLowPower;
-
+namespace MyLowPower {
+  const int ADC_OFF = 0;
+  const int BOD_OFF = 0;
+  const int SLEEP_250MS = 0;
+  void powerDown(int mode, int adc, int bod);
+}
 #endif
